@@ -20,7 +20,6 @@ export default function WeeklyForecast({ forecast }: WeeklyForecastProps) {
   const precipitations = forecast.map(f => f.precipitation).filter((p): p is number => p !== null);
   const humidities = forecast.map(f => f.relativehumidity_2m).filter((h): h is number => h !== null);
   const windSpeeds = forecast.map(f => f.wind_speed_10m).filter((w): w is number => w !== null);
-  const cloudCovers = forecast.map(f => f.cloudcover).filter((c): c is number => c !== null);
 
   // Group by day to count sunny/rainy days
   const dayMap = new Map<string, { precipitation: number; cloudCover: number }>();

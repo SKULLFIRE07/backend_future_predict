@@ -98,11 +98,7 @@ export default function DailyForecast({ forecast, days = 7 }: DailyForecastProps
     .slice(0, days)
     .sort((a, b) => a.date.getTime() - b.date.getTime());
 
-  const getWeatherIcon = (avg: number | null, cloudCover: number | null, date: Date) => {
-    const isToday = date.toDateString() === new Date().toDateString();
-    const month = date.getMonth();
-    const isSummer = month >= 4 && month <= 9;
-    
+  const getWeatherIcon = (avg: number | null, cloudCover: number | null) => {
     if (!avg) return '🌤️';
     
     if (cloudCover && cloudCover > 80) return '☁️';
@@ -153,7 +149,7 @@ export default function DailyForecast({ forecast, days = 7 }: DailyForecastProps
             </div>
             
             <div className="flex-shrink-0 text-3xl">
-              {getWeatherIcon(day.avg, day.cloudCover, day.date)}
+              {getWeatherIcon(day.avg, day.cloudCover)}
             </div>
             
             <div className="flex-1">

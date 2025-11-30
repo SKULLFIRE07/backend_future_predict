@@ -6,7 +6,7 @@ interface HourlyForecastProps {
 }
 
 export default function HourlyForecast({ forecast, hours = 24 }: HourlyForecastProps) {
-  const hourlyData = forecast.slice(0, hours).map((point, index) => {
+  const hourlyData = forecast.slice(0, hours).map((point) => {
     const date = new Date(point.time);
     return {
       time: date,
